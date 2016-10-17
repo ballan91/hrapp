@@ -1,0 +1,33 @@
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Personnel ID (View or Edit)</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Department</th>
+        <th>Location</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of personnel" (click)="onSelect(person)"
+          [class.selected]="person === selectedPerson">
+        <button (click)="goToDetail(person); $event.stopPropagation()" class="btn btn-link">{{person.id}}</button>
+        <!--<td>{{person.id}}</td>-->
+        <td>{{person.first_name}}</td>
+        <td>{{person.last_name}}</td>
+        <td>{{person.department.name}}</td>
+        <td>{{person.location.name}}</td>
+        <td>{{person.status}}</td>
+        
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!--<div *ngIf="selectedPerson">
+  <h2>
+    {{selectedPerson.first_name | uppercase}}
+  </h2>
+  <button (click)="gotoDetail()" class="btn btn-secondary">View Details</button>
+</div>-->
